@@ -1,4 +1,5 @@
-//HOW DO I START JAVASCRIPT CODE? i guess with document ready
+
+//need to style html lol
 
 $(document).ready(function(){
 
@@ -25,14 +26,13 @@ function main(url) {
 					 http://stackoverflow.com/questions/8191105/how-to-extract-url-data-from-reddit-api-using-json
 					 https://gist.github.com/sente/947491 */
 
-
-	//http://www.reddit.com/search.json?q=url:https:www.youtube.com/watch?v=VfOuJ93sIog&sort=best
+	
 	//using to get JSON data https://github.com/reddit/reddit/wiki/JSON#link-implements-votable--created 
 
     $.getJSON(
 
     "http://www.reddit.com/search.json?q=url:" + url + "&sort=best",
-    //"http://www.reddit.com/search.json?q=url:https:www.youtube.com/watch?v=VfOuJ93sIog&sort=best",
+    //testing purposes"http://www.reddit.com/search.json?q=url:https:www.youtube.com/watch?v=VfOuJ93sIog&sort=best",
 
     function getStuff(data)
     {
