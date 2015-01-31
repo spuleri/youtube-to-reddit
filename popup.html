@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp" ng-csp="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="A basic template for a Chrome Extension using Twitter Bootstrap 3">
+    <meta name="author" content="Elliot Hesp">
+
+    <title>Youtube to Reddit</title>
+
+    <!-- Scripts -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular-1.1.0.min.js"></script>
+    <script src="js/popup.js"></script>
+
+
+
+    <!-- Cascading Style Sheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">  
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  
+  </head>
+
+  <body ng-controller="RedditController">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Youtube to Reddit</a>
+      </div>
+      
+        <div class="input-group input-group-md" style="padding-top:7px">
+          <input ng-model="link" type="text" class="form-control" placeholder="Link...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="ok()" >Go!</button>
+          </span>
+        </div><!-- /input-group -->
+
+      
+    </nav>
+
+    <section id="main">
+
+      <table ng-show="found" class="table table-hover">
+        <caption><h4>Reddit Links</h4></caption>
+
+        <tbody>
+          <tr ng-repeat="element in elements">
+            <td>
+              <h3>{{element.score}}</h3>
+            </td>
+            <td>
+               <a ng-href="{{element.url}}" target="_blank">
+                <img style="margin-top:17%" class="center-block" width="70" height="52" src="{{element.thumbnail}}"> 
+               </a>
+
+            </td>
+            <td>
+              <h4>{{element.title}}</h4>
+              <a ng-href="http://reddit.com/r/{{element.subreddit}}" target="_blank">
+                <p class="text-muted">/r/{{element.subreddit}}</p>
+              </a>
+
+              <small class="label label-success">
+                <i class="fa fa-link"></i>
+                <a ng-href="http://reddit.com{{element.permalink}}" target="_blank">Reddit Link</a>
+              </small>
+              <small class="label label-warning">
+                <i class="fa fa-link"></i>
+                <a ng-href="{{element.url}}" target="_blank">URL</a>
+              </small>
+              <small class="label label-info">
+                <i class="fa fa-user-md"></i>
+                <a ng-href="http://reddit.com/u/{{element.author}}" target="_blank">{{element.author}}</a>
+              </small>
+
+            </td>
+
+          </tr>
+  
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
+

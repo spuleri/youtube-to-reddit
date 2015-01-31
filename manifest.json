@@ -1,0 +1,30 @@
+{
+  "manifest_version" : 2,
+  "name": "Youtube Reddit Comments",
+  "version": "0.1",
+
+  "description": "View comments for a YouTube video on Reddit instead of YouTube for a more intelligent discussion.",
+  "icons": { "16" : "images/16.png",
+  "48" : "images/48.png",
+  "128" : "images/128.png"},
+  "homepage_url": "https://github.com/spuleri",
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["js/popup.js"]
+    }
+  ],
+  "permissions": [
+  "tabs",
+  "identity",
+  "http://*.reddit.com/",
+  "https://ssl.gstatic.com/",
+  "https://www.reddit.com/"
+  ],
+  "browser_action": {
+    "default_icon": "images/48.png", 
+    "default_title": "Read YouTube comments on Reddit",      
+    "default_popup": "popup.html"       
+  }
+}
